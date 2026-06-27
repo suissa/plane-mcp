@@ -1,0 +1,31 @@
+{
+  "name": "@plane/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Lightweight MCP server facade for the Plane API",
+  "scripts": {
+    "build": "tsx src/validate-config.ts && tsdown src/index.ts --format esm --platform node --out-dir dist --clean",
+    "start": "node --max-old-space-size=384 dist/index.js",
+    "dev": "tsx src/index.ts",
+    "check:types": "tsc --noEmit",
+    "check:lint": "oxlint src --deny-warnings",
+    "check:format": "oxfmt --check src package.json config.yml Dockerfile.mcp README.md",
+    "fix:format": "oxfmt src package.json README.md",
+    "fix:lint": "oxlint src --fix",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@plane/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "tsdown": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

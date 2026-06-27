@@ -1,0 +1,21 @@
+# Plane MCP Server feature gates.
+# All tools are disabled by default. Enable only the tools your deployment needs
+# before running `pnpm --filter=@plane/mcp build` or starting the server.
+server:
+  apiBaseUrl: "http://localhost:8000"
+  requestTimeoutMs: 10000
+  maxResponseBytes: 262144
+  logLevel: "info"
+  memory:
+    nodeOptions: "--max-old-space-size=384"
+
+auth:
+  # Prefer PLANE_API_TOKEN at runtime; this placeholder is intentionally empty.
+  apiToken: ""
+
+tools:
+  list_workspaces: false
+  list_projects: false
+  list_work_items: false
+  get_work_item: false
+  create_work_item: false
